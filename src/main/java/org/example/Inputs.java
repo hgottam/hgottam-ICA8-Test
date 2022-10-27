@@ -4,6 +4,9 @@ import java.io.*;
 import java.util.*;
 
 public class Inputs {
+    /**
+     * This class takes input from user whether to scan the strgin from file or the user wants to enter it.
+     */
     public void takeInput() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Do you want to enter the input or read from file?");

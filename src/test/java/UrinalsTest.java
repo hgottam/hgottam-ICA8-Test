@@ -6,8 +6,8 @@ public class UrinalsTest {
     Validation validate=new Validation();
 
     @Test
-    public void validateString(){
-        String str="abc";
-        Assertions.assertTrue(validate.validateString(str), "Failed");
+    public void testValidateString(){
+        String str="10010";
+        Assertions.assertEquals(validate.validateString(str), true, "Invalid string");
     }
 }
