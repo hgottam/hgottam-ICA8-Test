@@ -21,11 +21,11 @@ public class Inputs {
             try {
                 fileInput();
             } catch (Exception e) {
+                System.out.println("Cannot open file!");
             }
         }
     }
     public void keyboardInput(){
-        Scanner sc=new Scanner(System.in);
         String str="testString";
         Validation validate=new Validation();
         validate.validateString(str);
@@ -36,7 +36,7 @@ public class Inputs {
 //        }
     }
     public void fileInput() throws IOException {
-        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+       // BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw=new BufferedWriter(new OutputStreamWriter(System.out));
 
         bw.flush();
