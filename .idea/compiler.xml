@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="hgottam-ICA8-Test" />
         <module name="ICA8-Test" />
       </profile>
     </annotationProcessing>
