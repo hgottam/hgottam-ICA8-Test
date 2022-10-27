@@ -13,15 +13,21 @@ public class Inputs {
         System.out.println("Select an option:");
         System.out.println("0-Enter input \n1- Read from file");
         System.out.println();
-        int option = sc.nextInt();
-        if (option == 0) {
-           keyboardInput();
-        }
-        else {
-            try {
-                fileInput();
-            } catch (Exception e) {
-                System.out.println("Cannot open file!");
+        while(true) {
+            int option = sc.nextInt();
+            if (option == 0) {
+                keyboardInput();
+                break;
+            } else if (option == 1) {
+                try {
+                    fileInput();
+                } catch (Exception e) {
+                    System.out.println("Cannot open file!");
+                }
+                break;
+            } else {
+                System.out.println("Please enter valid option:");
+                option = sc.nextInt();
             }
         }
     }
@@ -36,10 +42,24 @@ public class Inputs {
 //        }
     }
     public void fileInput() throws IOException {
-       // BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw=new BufferedWriter(new OutputStreamWriter(System.out));
-
+        File f=new File("./src/main/resources/urinals.txt");
+        if(hasFileContent(f))
+            System.out.println("File has content");
+        else
+            System.out.println("File doesnt have content");
         bw.flush();
+    }
+
+    public boolean hasFileContent(File f) throws IOException{
+        //File f=new File("./src/main/resources/urinals.txt");
+        BufferedReader in = new BufferedReader(new FileReader(f));
+        String line = "";
+        int c=-1;
+        while((line=in.readLine())!=null)
+            c++;
+        return c>=0;
     }
 
 
