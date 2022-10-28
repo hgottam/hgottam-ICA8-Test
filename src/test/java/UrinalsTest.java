@@ -37,7 +37,7 @@ public class UrinalsTest {
     @Description("tests if the file exists")
     public void testIsFileExist(){
         Inputs inputs=new Inputs();
-        File f=new File("./src/main/resources/urinals1.txt");
+        File f=new File("./src/main/resources/urinals.txt");
         Assertions.assertTrue(inputs.isFileExist(f),"File doesnt exist");
     }
 
