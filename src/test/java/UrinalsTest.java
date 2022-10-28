@@ -29,7 +29,7 @@ public class UrinalsTest {
     @Description("Tests the count of urinals at one instance")
     public void testUrinalCount(){
         String str="100101";
-        Assertions.assertEquals(validate.urinalCount(str),7,"Incorrect count");
+        Assertions.assertEquals(validate.urinalCount(str),6,"Incorrect count");
 
     }
 

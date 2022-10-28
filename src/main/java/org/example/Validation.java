@@ -3,7 +3,8 @@ package org.example;
 public class Validation {
     public boolean validateString(String str){
         boolean valid=true;
-        for(int i=0;i<str.length()-1;i++){
+        int n=urinalCount(str);
+        for(int i=0;i<n-1;i++){
             if(str.charAt(i)!='0'&& str.charAt(i)!='1' ){
                 valid=false;
                 break;
@@ -18,5 +19,9 @@ public class Validation {
         if(str.charAt(str.length()-1)!='0' && str.charAt(str.length()-1)!='1')
             valid=false;
         return valid;
+    }
+
+    public int urinalCount(String str){
+        return str.length();
     }
 }

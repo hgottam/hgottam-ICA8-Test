@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Inputs {
     /**
-     * This class takes input from user whether to scan the strgin from file or the user wants to enter it.
+     * This class takes input from user whether to scan the string from file or the user wants to enter it.
      */
     public void takeInput() {
         Scanner sc = new Scanner(System.in);
@@ -37,7 +37,9 @@ public class Inputs {
         while(!str.equals("-1")){
             if(!validate.validateString(str))
                 System.out.println("===Invalid String===");
+            else{
 
+            }
             System.out.println("enter again");
             str=sc.nextLine();
         }
@@ -52,9 +54,6 @@ public class Inputs {
         }
 
         validateFileInputString(f);
-
-
-
         bw.flush();
     }
 
