@@ -11,7 +11,7 @@ public class UrinalsTest {
     @Test
     @Description("This method tests if the current string is valid or not")
     public void testValidateString(){
-        String str="10010";
+        String str="1001";
         Assertions.assertTrue(validate.validateString(str), "Invalid string");
     }
 
@@ -24,4 +24,13 @@ public class UrinalsTest {
         File f=new File("./src/main/resources/urinals.txt");
         Assertions.assertTrue(inputs.hasFileContent(f), "File content doesnt exits");
     }
+
+    @Test
+    @Description("Tests the count of urinals at one instance")
+    public void testUrinalCount(){
+        String str="100101";
+        Assertions.assertEquals(validate.urinalCount(str),7,"Incorrect count");
+
+    }
+
 }
