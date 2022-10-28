@@ -44,6 +44,6 @@ public class UrinalsTest {
     @Test
     @Description("Tests if string length lies between 1 and 20")
     public void testValidateLength(){
-        Assertions.assertTrue(validate.validateLength(""), "Invalid length");
+        Assertions.assertTrue(validate.validateLength("100100"), "Invalid length");
     }
 }
