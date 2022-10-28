@@ -38,7 +38,7 @@ public class Inputs {
             if(!validate.validateString(str))
                 System.out.println("===Invalid String===");
             else{
-
+                System.out.println(validate.maxUrinals(str));
             }
             System.out.println("enter again");
             str=sc.nextLine();
@@ -48,12 +48,15 @@ public class Inputs {
         //BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw=new BufferedWriter(new OutputStreamWriter(System.out));
         File f=new File("./src/main/resources/urinals.txt");
-        if(!hasFileContent(f)){
-            System.out.println("File doesnt have content");
-            return;
+        boolean isFileExist= isFileExist(f);
+        if(isFileExist) {
+            if (!hasFileContent(f)) {
+                System.out.println("File doesnt have content");
+                return;
+            }
+            validateFileInputString(f);
         }
 
-        validateFileInputString(f);
         bw.flush();
     }
 
@@ -71,10 +74,13 @@ public class Inputs {
         String line=in.readLine();
         Validation validate=new Validation();
         while((line)!=null){
-            if(!validate.validateString(line))
-                System.out.println("===Invalid String===");
+            if(validate.validateString(line))
+               validate.maxUrinals(line);
             line=in.readLine();
         }
+    }
+    public boolean isFileExist(File f){
+       return f.exists();
     }
 
 
