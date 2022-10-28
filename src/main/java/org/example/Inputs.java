@@ -104,7 +104,7 @@ public class Inputs {
                 outputFile = new File("./src/main/resources/output/rule.txt");
 
             if(isFileExist(outputFile)) {
-                createNewFile();
+                createNewFile(outputFile);
             }
 
             output = new BufferedWriter(new FileWriter(outputFile));
@@ -122,9 +122,9 @@ public class Inputs {
             }
         }
     }
-    public void createNewFile(){
+    public void createNewFile(File outputFile){
         String path="./src/main/resources/output/rule"+(increment++)+".txt";
-        this.outputFile = new File(path);
+        outputFile = new File(path);
     }
 
     public boolean badFileName(){

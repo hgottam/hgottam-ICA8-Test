@@ -47,6 +47,12 @@ public class Validation {
                 count++;
             }
         }
+        else{
+            if(position[0]=='1')
+                count=0;
+            else
+                count=1;
+        }
         return count;
     }
     public boolean validateLength(String str) {
