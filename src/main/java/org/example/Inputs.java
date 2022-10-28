@@ -7,6 +7,8 @@ public class Inputs {
     /**
      * This class takes input from user whether to scan the string from file or the user wants to enter it.
      */
+    public File outputFile;
+    public static int increment=1;
     public void takeInput() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Do you want to enter the input or read from file?");
@@ -49,7 +51,6 @@ public class Inputs {
         }
     }
     public void fileInput() throws IOException {
-        //BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw=new BufferedWriter(new OutputStreamWriter(System.out));
         File f=new File("./src/main/resources/urinals.txt");
         boolean isFileExist= isFileExist(f);
@@ -77,20 +78,64 @@ public class Inputs {
         BufferedReader in = new BufferedReader(new FileReader(f));
         String line=in.readLine();
         Validation validate=new Validation();
+        ArrayList<String> answer =new ArrayList<>();
         while((line)!=null){
             if(!validate.validateLength(line))
-                System.out.println("-1");
+                answer.add(String.valueOf(-1));
             else {
-                if (validate.validateString(line))
-                    validate.maxAUrinalAccomodation(line);
+                if (validate.validateString(line)) {
+                    answer.add(String.valueOf(validate.maxAUrinalAccomodation(line)));
+                }
+                else{
+                    answer.add("-1");
+                }
                 line = in.readLine();
             }
+            writeToFile(answer);
         }
     }
     public boolean isFileExist(File f){
        return f.exists();
     }
+    public void writeToFile(ArrayList<String> answer){
+        BufferedWriter output = null;
+        try {
+            if(outputFile==null)
+                outputFile = new File("./src/main/resources/output/rule.txt");
 
+            if(isFileExist(outputFile)) {
+                createNewFile();
+            }
 
+            output = new BufferedWriter(new FileWriter(outputFile));
+            for (String s : answer) output.write(s + "\n");
+        } catch ( IOException e ) {
+           System.out.println("Couldn't write to the file");
+            e.printStackTrace();
+        } finally {
+            if ( output != null ) {
+                try {
+                    output.close();
+                }catch (IOException e){
+                    System.out.println("Couldn't close the file");
+                }
+            }
+        }
+    }
+    public void createNewFile(){
+        String path="./src/main/resources/output/rule"+(increment++)+".txt";
+        this.outputFile = new File(path);
+    }
 
+    public boolean badFileName(){
+        File[] files = new File("./src/main/resources/output").listFiles();
+        assert files != null;
+        for (File file : files) {
+            if(!file.getName().contains("rule")){
+            System.out.println("Bad file name: "+file.getName());
+            return true;
+            }
+        }
+        return false;
+    }
 }
