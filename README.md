@@ -5,7 +5,7 @@ the next person peeing. For example, if there are 3 urinals and one person is al
 choose the urinal on the right and not the one in the middle. That means that a maximum of 3 people can pee at the 
 same time on public toilets with 5 urinals when following this rule (Only 2 if the first-person pees into urinal 2 or 4). 
  
-SER 515  Testing 
+ 
 Task: 
 You need to write a function that returns the maximum of free urinals as an integer according to the unwritten rule. 
 Examples 
