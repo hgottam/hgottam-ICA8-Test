@@ -35,13 +35,17 @@ public class Inputs {
         System.out.println("Enter String:");
         String str=sc.nextLine();
         while(!str.equals("-1")){
-            if(!validate.validateString(str))
-                System.out.println("===Invalid String===");
-            else{
-                System.out.println(validate.maxUrinals(str));
+            if(!validate.validateLength(str))
+                System.out.println("-1");
+            else {
+                if (!validate.validateString(str))
+                    System.out.println("-1");
+                else {
+                    System.out.println(validate.maxAUrinalAccomodation(str));
+                }
+                System.out.println("enter again");
+                str = sc.nextLine();
             }
-            System.out.println("enter again");
-            str=sc.nextLine();
         }
     }
     public void fileInput() throws IOException {
@@ -74,9 +78,13 @@ public class Inputs {
         String line=in.readLine();
         Validation validate=new Validation();
         while((line)!=null){
-            if(validate.validateString(line))
-               validate.maxUrinals(line);
-            line=in.readLine();
+            if(!validate.validateLength(line))
+                System.out.println("-1");
+            else {
+                if (validate.validateString(line))
+                    validate.maxAUrinalAccomodation(line);
+                line = in.readLine();
+            }
         }
     }
     public boolean isFileExist(File f){

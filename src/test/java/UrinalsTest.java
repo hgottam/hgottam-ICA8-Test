@@ -41,4 +41,9 @@ public class UrinalsTest {
         Assertions.assertTrue(inputs.isFileExist(f),"File doesnt exist");
     }
 
+    @Test
+    @Description("Tests if string length lies between 1 and 20")
+    public void testValidateLength(){
+        Assertions.assertTrue(validate.validateLength(""), "Invalid length");
+    }
 }
